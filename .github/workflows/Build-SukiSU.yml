@@ -243,8 +243,8 @@ jobs:
 
           # Docker config
           echo "CONFIG_PID_NS=y" >> "$CONFIG_FILE"
-          # echo "CONFIG_IPC_NS=y" >> "$CONFIG_FILE"
-          # echo "CONFIG_CGROUP_DEVICE=y" >> "$CONFIG_FILE"
+          echo "CONFIG_IPC_NS=y" >> "$CONFIG_FILE"
+          echo "CONFIG_CGROUP_DEVICE=y" >> "$CONFIG_FILE"
           # echo "CONFIG_BRIDGE_NETFILTER=y" >> "$CONFIG_FILE"
           # echo "CONFIG_IP6_NF_TARGET_MASQUERADE=y" >> "$CONFIG_FILE"
           # echo "CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y" >> "$CONFIG_FILE"
