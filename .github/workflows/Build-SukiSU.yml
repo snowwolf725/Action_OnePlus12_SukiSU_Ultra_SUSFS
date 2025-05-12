@@ -182,7 +182,7 @@ jobs:
           KSU_VERSION=$(expr $(/usr/bin/git rev-list --count main) "+" 10606)
           echo "KSUVER=$KSU_VERSION" >> $GITHUB_ENV
           export KSU_VERSION=$KSU_VERSION
-          sed -i "s/DKSU_VERSION=12800/DKSU_VERSION=${KSU_VERSION}/" kernel/Makefile
+          sed -i "s/DKSU_VERSION=12800/DKSU_VERSION=${KSU_VERSION}/" kernel/Makefile          
 
       - name: Apply Patches SukiSU Ultra
         run: |
@@ -244,7 +244,7 @@ jobs:
           # Docker config
           echo "CONFIG_PID_NS=y" >> "$CONFIG_FILE"
           echo "CONFIG_IPC_NS=y" >> "$CONFIG_FILE"
-          echo "CONFIG_CGROUP_DEVICE=y" >> "$CONFIG_FILE"
+          # echo "CONFIG_CGROUP_DEVICE=y" >> "$CONFIG_FILE"
           # echo "CONFIG_BRIDGE_NETFILTER=y" >> "$CONFIG_FILE"
           # echo "CONFIG_IP6_NF_TARGET_MASQUERADE=y" >> "$CONFIG_FILE"
           # echo "CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y" >> "$CONFIG_FILE"
