@@ -103,6 +103,9 @@ on:
         required: true
         default: false
 
+permissions:
+  contents: write
+
 env:
     GH_TOKEN: ${{ github.token }}
     
