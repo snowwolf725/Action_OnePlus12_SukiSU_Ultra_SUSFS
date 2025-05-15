@@ -468,7 +468,9 @@ jobs:
           clean_feil="${clean_feil%_v}"  # 去掉结尾的 _v（如果有）
           clean_feil="${clean_feil%_u}"  # 去掉结尾的 _u（如果有）
           echo "value=$clean_feil" >> $GITHUB_OUTPUT
-          ls ./AnyKernel3/*
+          cd AnyKernel3
+          zip -r ../AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.feil_clean.outputs.value }}${{ steps.suffix.outputs.value }}.zip *
+          cd ..
 
       - name: Upload AnyKernel3
         uses: actions/upload-artifact@v4
@@ -489,4 +491,4 @@ jobs:
           generate_release_notes: true
           body: "changelog"
           files: |
-            ./AnyKernel3/*
+            ./*.zip
