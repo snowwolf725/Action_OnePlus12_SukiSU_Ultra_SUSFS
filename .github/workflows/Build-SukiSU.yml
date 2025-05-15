@@ -475,6 +475,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GITHUBTOKEN }}
+          tag_name: ${{ env.KSUVER }}
           name: "Version  ${{ env.KSUVER }} "
           draft: false
           prerelease: false
