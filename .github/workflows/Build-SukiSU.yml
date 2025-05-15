@@ -103,9 +103,6 @@ on:
         required: true
         default: false
 
-env:
-    GH_TOKEN: ${{ github.token }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -465,6 +462,7 @@ jobs:
           clean_feil="${clean_feil%_v}"  # 去掉结尾的 _v（如果有）
           clean_feil="${clean_feil%_u}"  # 去掉结尾的 _u（如果有）
           echo "value=$clean_feil" >> $GITHUB_OUTPUT
+          ls ./AnyKernel3/*
 
       - name: Upload AnyKernel3
         uses: actions/upload-artifact@v4
@@ -472,7 +470,15 @@ jobs:
           name: AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.feil_clean.outputs.value }}${{ steps.suffix.outputs.value }}
           path: ./AnyKernel3/*
       
-      - name: Remove _uv suffix from FEIL
-        id: release
-        run: |
-          gh release create ${{ env.KSUVER }} --title ${{ env.KSUVER }} --notes "" ./AnyKernel3/*
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.GITHUBTOKEN }}
+          name: "Version  ${{ env.KSUVER }} "
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          body: "changelog"
+          files: |
+            ./AnyKernel3/*
