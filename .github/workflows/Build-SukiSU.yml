@@ -103,6 +103,9 @@ on:
         required: true
         default: false
 
+env:
+    GH_TOKEN: ${{ github.token }}
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -474,7 +477,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          token: ${{ secrets.GITHUBTOKEN }}
+          token: ${{ github.token }}
           tag_name: ${{ env.KSUVER }}
           name: "Version  ${{ env.KSUVER }} "
           draft: false
