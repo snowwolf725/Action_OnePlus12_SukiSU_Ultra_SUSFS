@@ -490,4 +490,4 @@ jobs:
           generate_release_notes: true
           body: "changelog"
           files: |
-            ./AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.feil_clean.outputs.value }}${{ steps.suffix.outputs.value }}.zip
+            ./AnyKernel3*.zip
