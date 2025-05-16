@@ -244,9 +244,9 @@ jobs:
         run: |
           git clone https://github.com/snowwolf725/GKI-LXC.git
           cd kernel_workspace/kernel_platform/common
-          git apply ../../../GKI-LXC/patchs/common-01.patch
+          git apply --whitespace=fix ../../../GKI-LXC/patchs/common-01.patch
           cd kernel_workspace/kernel_platform/msm-kernel
-          git apply ../../../GKI-LXC/patchs/msm-01.patch
+          git apply --whitespace=fix ../../../GKI-LXC/patchs/msm-01.patch
           
       # 配置信息
       - name: Add Configuration Settings
