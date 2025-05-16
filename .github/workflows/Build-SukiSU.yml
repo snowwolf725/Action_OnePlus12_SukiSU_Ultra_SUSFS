@@ -240,6 +240,13 @@ jobs:
             echo '完成LZ4KD补丁'
           fi
 
+      - name: Apply LZ4KD
+        run: |
+          git clone https://github.com/snowwolf725/GKI-LXC.git
+          cd kernel_workspace/kernel_platform/common
+          git apply ../../../GKI-LXC/patchs/msm-01.patch
+          git apply ../../../GKI-LXC/patchs/common-01.patch
+          
       # 配置信息
       - name: Add Configuration Settings
         run: |
