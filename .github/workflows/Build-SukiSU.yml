@@ -482,7 +482,6 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           token: ${{ github.token }}
           tag_name: ${{ env.KSUVER }}
           name: "Version  ${{ env.KSUVER }} "
@@ -491,4 +490,4 @@ jobs:
           generate_release_notes: true
           body: "changelog"
           files: |
-            ./*.zip
+            ./AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.feil_clean.outputs.value }}${{ steps.suffix.outputs.value }}.zip
