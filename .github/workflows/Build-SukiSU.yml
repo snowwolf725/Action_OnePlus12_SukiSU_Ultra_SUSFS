@@ -256,6 +256,7 @@ jobs:
           KERNEL_VERSION="${{ github.event.inputs.KERNEL_VERSION }}"
 
           # Docker config
+          echo "CONFIG_IP_VS=y" >> "$CONFIG_FILE"
           echo "CONFIG_MODULE_FORCE_LOAD=y" >> "$CONFIG_FILE"
           echo "CONFIG_PID_NS=y" >> "$CONFIG_FILE"
           echo "CONFIG_IPC_NS=y" >> "$CONFIG_FILE"
