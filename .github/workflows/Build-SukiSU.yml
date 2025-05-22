@@ -133,7 +133,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update && sudo apt upgrade -y
-          sudo apt install -y python3 git curl
+          sudo apt install -y python3 git curl tree
 
       - name: Show selected inputs debug
         run: |
@@ -440,6 +440,7 @@ jobs:
           rm -f Image
           mv oImage Image
           cp Image $GITHUB_WORKSPACE/AnyKernel3/Image
+          tree
 
       # 下载 SUSFS 模块（CI）
       - name: Download Latest SUSFS Module from CI
